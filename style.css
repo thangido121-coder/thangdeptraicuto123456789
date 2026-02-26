@@ -1,0 +1,849 @@
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-white: #FFFFFF;
+    --color-cream: #FFF8E7;
+    --color-light-blue: #E3F2FD;
+    --color-sunny-yellow: #FFF9C4;
+    --color-blackboard: #2C3E50;
+    --color-chalk: #F5F5F5;
+    --color-text: #424242;
+    --color-text-light: #757575;
+    --color-accent: #64B5F6;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-cream);
+    overflow-x: hidden;
+    padding-top: 70px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3 {
+    font-weight: 400;
+}
+
+.hero-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 5rem;
+    color: var(--color-sunny-yellow);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7), 0 0 20px rgba(255, 249, 196, 0.5);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 3rem;
+    color: var(--color-white);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7), 0 0 15px rgba(255, 255, 255, 0.3);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.section-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 3rem;
+    color: var(--color-blackboard);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2rem;
+    color: var(--color-blackboard);
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   NAVIGATION HEADER (FIXED)
+   ============================================ */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(176, 224, 230, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2C3E50;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+.nav-logo:hover {
+    color: #FF69B4;
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-menu a {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.2rem;
+    color: #2C3E50;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FF69B4;
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #FF69B4;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Active nav link style */
+.nav-menu a.active {
+    color: #FF69B4;
+}
+
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+
+/* ============================================
+   HERO SECTION (INDEX.HTML)
+   ============================================ */
+.hero-section {
+    height: calc(100vh - 70px);
+    margin-top: -70px;
+    background: linear-gradient(rgba(44, 62, 80, 0.5), rgba(44, 62, 80, 0.5)),
+                url('https://kyyeusaigon.vn/wp-content/uploads/2020/09/118254369_1244645272535290_8154856938421458469_o-scaled.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 249, 196, 0.1) 0%, rgba(227, 242, 253, 0.1) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 800px;
+    padding-top: 120px;
+    margin-top: 0;
+}
+
+.hero-text {
+    font-size: 1.2rem;
+    color: var(--color-white);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6), 0 0 10px rgba(0,0,0,0.3);
+    font-weight: 500;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-white);
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-white);
+    color: var(--color-blackboard);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-sunny-yellow);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-blackboard);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ============================================
+   FADE IN ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.fade-in-delay-2 {
+    animation: fadeIn 1s ease-out 0.6s both;
+}
+
+.fade-in-delay-3 {
+    animation: fadeIn 1s ease-out 0.9s both;
+}
+
+/* ============================================
+   INTRO SECTION (INDEX.HTML)
+   ============================================ */
+.intro-section {
+    padding: 80px 0;
+    background-color: var(--color-white);
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.title-underline {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-accent), var(--color-sunny-yellow));
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.intro-card {
+    background-color: var(--color-white);
+    padding: 0;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.intro-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.intro-card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.intro-card:hover .intro-card-image {
+    transform: scale(1.05);
+}
+
+.intro-card h3 {
+    margin: 25px 30px 15px;
+    color: var(--color-blackboard);
+    padding-top: 0;
+}
+
+.intro-card > p {
+    padding: 0 30px;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.intro-card .card-link {
+    margin-bottom: 30px;
+    padding: 0 30px;
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.card-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.card-link:hover {
+    color: var(--color-blackboard);
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   MEMBERS PAGE
+   ============================================ */
+.page-header {
+    background: linear-gradient(135deg, #FFB6C1 0%, #B0E0E6 100%);
+    padding: 100px 0 60px;
+    text-align: center;
+    color: #2C3E50;
+    margin-top: 0;
+}
+
+.page-header h1 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.member-card {
+    background-color: var(--color-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.member-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.member-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--color-light-blue), var(--color-cream));
+    transition: all 0.3s ease;
+}
+
+.member-card:hover .member-image {
+    filter: grayscale(0) brightness(1.1);
+    transform: scale(1.1);
+}
+
+.member-info {
+    padding: 25px;
+    text-align: center;
+    background-color: var(--color-white);
+}
+
+.member-name {
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.8rem;
+    color: var(--color-blackboard);
+    margin-bottom: 8px;
+}
+
+.member-nickname {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.member-memory {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* ============================================
+   ACTIVITIES PAGE
+   ============================================ */
+.activities-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.activity-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: center;
+    background-color: var(--color-white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.activity-card:nth-child(even) {
+    direction: rtl;
+}
+
+.activity-card:nth-child(even) > * {
+    direction: ltr;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.activity-media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.activity-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--color-light-blue), var(--color-sunny-yellow));
+}
+
+.activity-video {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    background-color: var(--color-blackboard);
+    object-fit: cover;
+}
+
+.activity-content h2 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.5rem;
+    color: var(--color-blackboard);
+    margin-bottom: 20px;
+}
+
+.activity-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* ============================================
+   CLASS DAYS PAGE
+   ============================================ */
+.classdays-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.classdays-grid {
+    display: grid;
+    gap: 50px;
+}
+
+.classday-item {
+    background-color: var(--color-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 0;
+}
+
+
+.classday-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--color-cream), var(--color-light-blue));
+}
+
+.classday-content {
+    padding: 50px;
+}
+
+.classday-content h2 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.8rem;
+    color: var(--color-blackboard);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.classday-content p {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    line-height: 2;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.quote-box {
+    background: linear-gradient(135deg, var(--color-sunny-yellow), var(--color-cream));
+    padding: 40px;
+    border-left: 5px solid var(--color-accent);
+    border-radius: 10px;
+    margin: 40px 0;
+}
+
+.quote-box p {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.5rem;
+    color: var(--color-blackboard);
+    text-align: center;
+    font-style: italic;
+    margin: 0;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+.classday-video {
+    width: 100%;
+    height: 500px;
+    border-radius: 15px;
+    margin-top: 40px;
+    background-color: var(--color-blackboard);
+    object-fit: cover;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.main-footer {
+    background-color: #B0E0E6;
+    color: #2C3E50;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .nav-container {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .nav-logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        gap: 15px;
+    }
+
+    .nav-menu a {
+        font-size: 1rem;
+    }
+
+    body {
+        padding-top: 60px;
+    }
+
+    .hero-section {
+        height: calc(100vh - 60px);
+        margin-top: -60px;
+    }
+
+    .hero-content {
+        padding-top: 100px;
+        margin-top: 0;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.7), 0 0 15px rgba(255, 249, 196, 0.4);
+    }
+
+    .hero-subtitle {
+        font-size: 2rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7), 0 0 12px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-text {
+        font-size: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .intro-card-image {
+        height: 200px;
+    }
+
+    .intro-card h3 {
+        margin: 20px 20px 15px;
+        font-size: 1.5rem;
+    }
+
+    .intro-card > p {
+        padding: 0 20px;
+        font-size: 0.95rem;
+    }
+
+    .intro-card .card-link {
+        padding: 0 20px;
+        margin-bottom: 25px;
+    }
+
+    .page-header h1 {
+        font-size: 3rem;
+    }
+
+    .members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 40px 15px;
+    }
+
+    .activity-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+
+    .activity-card:nth-child(even) {
+        direction: ltr;
+    }
+
+    .classday-content {
+        padding: 30px 20px;
+    }
+
+    .classday-content h2 {
+        font-size: 2rem;
+    }
+
+    .quote-box p {
+        font-size: 1.2rem;
+    }
+
+    .classday-video {
+        height: 300px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        height: 55px;
+        padding: 0 10px;
+    }
+
+    .nav-logo {
+        font-size: 1.3rem;
+    }
+
+    .nav-menu {
+        gap: 8px;
+    }
+
+    .nav-menu a {
+        font-size: 0.85rem;
+    }
+
+    body {
+        padding-top: 55px;
+    }
+
+    .hero-section {
+        height: calc(100vh - 55px);
+        margin-top: -55px;
+    }
+
+    .hero-content {
+        padding-top: 80px;
+        margin-top: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7), 0 0 12px rgba(255, 249, 196, 0.4);
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7), 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-text {
+        font-size: 0.9rem;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-card-image {
+        height: 180px;
+    }
+
+    .intro-card h3 {
+        margin: 15px 15px 12px;
+        font-size: 1.3rem;
+    }
+
+    .intro-card > p {
+        padding: 0 15px;
+        font-size: 0.9rem;
+    }
+
+    .intro-card .card-link {
+        padding: 0 15px;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
